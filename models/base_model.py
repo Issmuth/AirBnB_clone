@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """ Base Class Definition module."""
+from datetime import datetime
 import models
 import uuid
-from datetime import datetime
 
 
 form = "%Y-%m-%dT%H:%M:%S.%f"
