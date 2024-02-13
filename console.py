@@ -9,6 +9,7 @@ from models.city import City
 from models.place import Place
 from models.amenity import Amenity
 from models.review import Review
+import re
 
 classes = {
         "BaseModel": "BaseModel()",
@@ -159,6 +160,40 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** no instance found **")
 
+    def do_count(self, line):
+        """Count the number of instances a class has."""
+        count = 0
+
+        if not line:
+            print("** clas name missing **")
+            return
+
+        if line not in classes:
+            print("** class doesn't exist **")
+            return
+
+        obj_dict = models.storage.all()
+        for k, v in obj_dict.items():
+            class_name = k.split('.')
+            if line == class_name[0]:
+                count += 1
+        print(count)
+
+    def default(self, line):
+        """When input is not in predefined commands."""
+        com_dict = {
+                "all()": self.do_all,
+                "count()": self.do_count
+        }
+
+        if re.search(r"\.", line) != None:
+            com_key = line.split('.')
+            for k, v in com_dict.items():
+                if k == com_key[1]:
+                    return v(com_key[0])
+        print("*** Unknown syntax: {}".format(line))
+
+
     def do_quit(self, line):
         """Exits program.
 
@@ -197,7 +232,18 @@ class HBNBCommand(cmd.Cmd):
     def help_all(self):
         """all command documentation."""
         print("Prints string representation of all or class" +
-              " based instances\nUsage: all <class_name(optional)>\n")
+              " based instances\nUsage: all <class_name(optional)> or <class_name>.all()\n")
+
+    def help_update(self):
+        """upddate command documentation."""
+        print("Update the attributes on an object based on class" +
+              "\nUsage: update <class_name> <instance_id> <attribute name> <attribute value>\n")
+
+    def help_count(self):
+        """count command documentation."""
+        print("Count the number of instances in a class" +
+              "\nUsage: count <class_name> or <class_name>.count()\n")
+
 
     def help_quit(self):
         """quit command documentation."""
