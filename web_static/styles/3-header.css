@@ -1,0 +1,18 @@
+header {
+	background-color: white;
+	border: solid;
+	border-color: #CCCCCC;
+	border-width: 0px 0px 1px 0px;
+	display: flex;
+	align-items: center;
+	height: 70px;
+	width: 100%;
+}
+
+div.logo {
+	width: 142px;
+	height: 60px;
+	background: url("../images/logo.png");
+	background-repeat: no-repeat;
+	margin-left: 20px;
+}
