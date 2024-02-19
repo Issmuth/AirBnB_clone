@@ -122,3 +122,16 @@ div.description {
 	margin-top: 0;
 }
 
+div.amenities {
+	font-size: 16px;
+	margin-top: 40px;
+	margin-left: auto;
+	height: inherit;
+}
+
+ul.amen_list {
+	border-top: solid 1px #DDDDDD;
+	list-style-type: none;
+	font-size: 16px;
+}
+

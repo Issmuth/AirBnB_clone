@@ -32,7 +32,7 @@ div.locations {
 	border-right: solid 1px #DDDDDD;
 }
 
-div.amenities {
+div.amenitiess {
 	height: 100%;
 	width: 25%;
 }
@@ -95,6 +95,6 @@ div.locations:hover  #pop-loc.popover {
 	visibility: visible;
 }
 
-div.amenities:hover  #pop-amen.popover {
+div.amenitiess:hover  #pop-amen.popover {
 	visibility: visible;
 }
